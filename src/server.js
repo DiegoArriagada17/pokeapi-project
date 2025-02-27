@@ -1,17 +1,17 @@
-const express = require('express');
-const pokemonRoutes = require('./routes/pokemonRoutes');
-const path = require('path');
+const express = require("express");
+const pokemonRoutes = require("./routes/pokemonRoutes"); // Importa las rutas definidas en pokemonRoutes con la ruta base /pokemon
+const path = require("path");
 
 const app = express();
 const PORT = 3000;
 
 // Servir archivos estáticos desde la carpeta "public"
-app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static(path.join(__dirname, "../public")));
 
-// Usar las rutas de Pokémon
-app.use('/pokemon', pokemonRoutes);
+// Asocia las rutas definidas en pokemonRoutes con la ruta base /pokemon
+app.use("/pokemon", pokemonRoutes);
 
-// Iniciar el servidor
+// Inicia el servidor en el puerto 3000
 app.listen(PORT, () => {
-    console.log(`Servidor escuchando en http://localhost:${PORT}`);
+  console.log(`Servidor escuchando en http://localhost:${PORT}`);
 });
